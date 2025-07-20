@@ -7,6 +7,7 @@ import {
   TradeType,
   TradeStats 
 } from '../types/Trade';
+import config from '../config';
 
 // Função helper para verificar se é erro de rede
 const isNetworkError = (error: any): boolean => {
@@ -23,12 +24,12 @@ const isNetworkError = (error: any): boolean => {
 
 class TradeService {
   private api: AxiosInstance;
-  private baseURL: string = 'http://45.166.15.28:8093/api/trades';
+  private baseURL: string = `${config.API_BASE_URL}/trades`;
 
   constructor() {
     this.api = axios.create({
       baseURL: this.baseURL,
-      timeout: 10000, // Reduzindo timeout para 10 segundos
+      timeout: 30000, // Aumentando timeout para produção
       headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json'

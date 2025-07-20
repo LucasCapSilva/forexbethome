@@ -1,11 +1,10 @@
 import axios from 'axios';
+import config from '../config';
 import { Investment, Portfolio, CreateInvestmentRequest, CreatePortfolioRequest, UpdatePortfolioRequest } from '../types/Investment';
 
-const API_BASE_URL = 'http://45.166.15.28:8093/api';
-
 const api = axios.create({
-  baseURL: API_BASE_URL,
-  timeout: 10000, // Reduzindo timeout para 10 segundos
+  baseURL: config.API_BASE_URL,
+  timeout: 30000, // Aumentando timeout para produção
   headers: {
     'Content-Type': 'application/json',
   },

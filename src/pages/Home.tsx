@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import { getUserById } from '../services/userService';
@@ -8,9 +8,10 @@ import { useInvestmentService } from '../hooks/useInvestmentService';
 import { TradeResponse, CreateTradeRequest, TradeType } from '../types/Trade';
 import { Portfolio as ApiPortfolio, Investment as ApiInvestment } from '../types/Investment';
 import { TradesList } from '../components/TradesList';
+import config from '../config';
 
 // Constante da API para logs de debug
-const API_BASE_URL = 'http://45.166.15.28:8093/api';
+const API_BASE_URL = config.API_BASE_URL;
 
 interface Investment {
   date: string;
